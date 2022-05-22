@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'home',
     'search',
     'dashboard',
+    'resourcemanager',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',
