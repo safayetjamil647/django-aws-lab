@@ -1,5 +1,5 @@
 {% extends "wagtailadmin/base.html" %}
-{% block titletag %}{{ current_year }} calendar{% endblock %}
+{% block titletag %}{{ current_year }} AWS Manager{% endblock %}
 
 {% block extra_css %}
     {{ block.super }}
@@ -14,8 +14,11 @@
 {% endblock %}
 
 {% block content %}
-    {% include "wagtailadmin/shared/header.html" with title="Instances" icon="date" %}
+    {% include "wagtailadmin/shared/header.html" with title="Resource Data" icon="date" %}
     <div class="nice-padding">
-      <h1>ec2</h1>
+      <h1> AWS Access Key Data </h1>
+        <button>Show Access Key</button>
+<!--        <a href="{% url 'launcher' %}">Launch Instances</a>-->
+<!--         <a href="{% url 'allinstances' %}">Get All Instances</a>-->
     </div>
 {% endblock %}

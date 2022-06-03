@@ -1,0 +1,23 @@
+{% extends "wagtailadmin/base.html" %}
+{% block titletag %}{{ current_year }} Linux Playground{% endblock %}
+
+{% block extra_css %}
+    {{ block.super }}
+    <style>
+        table.month {
+            margin: 20px;
+        }
+        table.month td, table.month th {
+            padding: 5px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    {% include "wagtailadmin/shared/header.html" with title="Playground" icon="date" %}
+    <div class="nice-padding">
+      <h1>Linux</h1>
+        <div id="inline-terminal-1" data-katacoda-env="bash" style="height: 500px;"></div>
+    </div>
+<script src="//katacoda.com/embed.js"></script>
+{% endblock %}
