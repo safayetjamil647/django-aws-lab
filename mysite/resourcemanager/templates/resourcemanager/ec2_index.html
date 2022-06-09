@@ -2,23 +2,83 @@
 {% block titletag %}{{ current_year }} AWS Manager{% endblock %}
 
 {% block extra_css %}
-    {{ block.super }}
-    <style>
-        table.month {
-            margin: 20px;
+{{ block.super }}
+<style>
+.display{
+    display:none
         }
-        table.month td, table.month th {
-            padding: 5px;
-        }
-    </style>
-{% endblock %}
+tr > * + * {
+  padding-left: 4em;
+}
 
+</style>
+{% endblock %}
+{% block extra_js %}
+<script>
+  function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+  function newFunction() {
+  var x = document.getElementById("newDiv");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
+</script>
+{% endblock %}
 {% block content %}
-    {% include "wagtailadmin/shared/header.html" with title="Resource Data" icon="date" %}
-    <div class="nice-padding">
-      <h1> AWS Access Key Data </h1>
-        <button>Show Access Key</button>
-<!--        <a href="{% url 'launcher' %}">Launch Instances</a>-->
-<!--         <a href="{% url 'allinstances' %}">Get All Instances</a>-->
+{% include "wagtailadmin/shared/header.html" with title="Resource Data" icon="date" %}
+<div class="nice-padding">
+    <h1> AWS Resources</h1>
+    <button onclick="myFunction()">Show Access Key</button>
+    <div class="display" id="myDIV">
+        <table>
+  <thead>
+    <tr>
+        <th>Access Id</th>
+      <th>Access Key</th>
+         <th>Default region name [None]:</th>
+        <th>Default output format [None]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AKIAYJLS7OWWNTBV2VU2</td>
+      <td>teyVmJ2QAQx8UyeFvPLmn5+zwTMDn9VIKBY9tUUP</td>
+        <td>us-east-1</td>
+        <td>Empty</td>
+
+    </tr>
+  </tbody>
+</table>
     </div>
+</div>
+<div class="nice-padding">
+    <h1> AMI Image</h1>
+    <button onclick="newFunction()">Show Image ID</button>
+    <div class="display" id="newDiv">
+        <table>
+  <thead>
+    <tr>
+        <th>Image Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ami-0b0ea68c435eb488d</td>
+
+
+    </tr>
+  </tbody>
+</table>
+    </div>
+</div>
 {% endblock %}
